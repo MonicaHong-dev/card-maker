@@ -13,14 +13,15 @@ class AuthService {
     return signInWithPopup(this.firebaseAuth, authProvider);
   }
 
-  // logout() {
-  //   this.firebaseAuth.signOut();
-  // }
+  logout() {
+    this.firebaseAuth.signOut();
+  }
 
-  // onAuthChange(onUserChanged) {
-  //   this.firebaseAuth.onAuthStateChanged((user) => {
-  //     onUserChanged(user);
-  //   });
+  onAuthChange(onUserChanged) {
+    this.firebaseAuth.onAuthStateChanged((user) => {
+      onUserChanged(user);
+    });
+  }
 
   getProvider(providerName) {
     switch (providerName) {

@@ -6,6 +6,7 @@ import AuthService from "./service/auth_service";
 import { firebaseApp } from "./service/firebase";
 
 const authService = new AuthService(firebaseApp);
+
 ReactDOM.render(
   <React.StrictMode>
     <App authService={authService} />
