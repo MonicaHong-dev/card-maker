@@ -24,12 +24,12 @@ const Main = ({ authService }) => {
 
   return (
     <>
-      <section className={styles.section}>
+      <section className={styles.maker}>
         <Header onLogout={onLogout} />
-        <body className={styles.body}>
+        <div className={styles.container}>
           <CardMaker />
           <CardPreview />
-        </body>
+        </div>
         <Footer />
       </section>
     </>

@@ -1,4 +1,11 @@
 import React from "react";
-const Body = (props) => <h1>Card Maker</h1>;
-
-export default Body;
+import styles from "./cardMaker.module.css";
+const CardMaker = (props) => {
+  return (
+    <section className={styles.edit}>
+      <h1 className={styles.title}> Card Maker</h1>
+      <div className={styles.body}></div>
+    </section>
+  );
+};
+export default CardMaker;

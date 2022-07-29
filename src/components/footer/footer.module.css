@@ -4,8 +4,10 @@
     width: 100%;
     background-color: makerGreen;
     text-align: center;
+    
 }
 
 .title {
     color: makerWhite;
+    margin: 0%;
 }
