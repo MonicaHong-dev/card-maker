@@ -1,0 +1,61 @@
+@value makerGreen, makerColorful, makerWheat from './../../common/colors.css';
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 1rem;
+    padding: 0.2rem 0;
+    margin-bottom: 0.5em;
+}
+
+.dark{
+    background-color: grey;
+}
+.light {
+    background-color: wheat;
+}
+
+.default {
+    background: makerColorful;
+}
+.info {
+    width: 100%;
+    margin-left: 2rem;
+}
+.avatar {
+    width: 12em;
+    height: 12em;
+    padding: 1em;
+    margin-left: 0.5em;
+    margin-right: 1em;
+    border-radius: 50%;
+}
+
+
+.name,
+.work,
+.position,
+.email,
+.memo {
+    margin: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
+.name {
+    font-size: 1.2rem;
+}
+
+.work {
+    margin-bottom: 1em;
+}
+.work::after {
+    content: '';
+    display: block;
+    width: 90%;
+    height: 2px;
+    background-color: makerWheat;
+    transform: translateY(0.5em);
+
+}
