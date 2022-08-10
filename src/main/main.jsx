@@ -10,7 +10,6 @@ import CardPreview from "../components/cardPreview/cardPreview";
 
 const Main = ({ authService }) => {
   const navigate = useNavigate();
-  const columns = ["name", "work", "theme", "position", "email", "memo", "fileName", "fileURL"];
   const [cards, setCards] = useState([
     {
       id: 1,
@@ -47,6 +46,14 @@ const Main = ({ authService }) => {
     },
   ]);
 
+  const addNewCard = (newCard) => {
+    debugger;
+    const updatedCards = [...cards, newCard];
+    console.log(updatedCards);
+    debugger;
+    setCards(updatedCards);
+  };
+
   const onLogout = () => {
     authService.logout();
     // navigate("/");
@@ -64,7 +71,7 @@ const Main = ({ authService }) => {
       <section className={styles.maker}>
         <Header onLogout={onLogout} />
         <div className={styles.container}>
-          <CardMaker columns={columns} cards={cards} />
+          <CardMaker cards={cards} addCard={addNewCard} />
           <CardPreview cards={cards} />
         </div>
         <Footer />
