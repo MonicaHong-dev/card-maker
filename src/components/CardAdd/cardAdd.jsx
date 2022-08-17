@@ -22,7 +22,7 @@ const CardAdd = ({ addCard }) => {
     const newMemo = inputMemo.current.value || "";
 
     let newCard = {
-      id: 5,
+      id: Date.now(),
       name: newName,
       work: newWork,
       theme: newTheme,
