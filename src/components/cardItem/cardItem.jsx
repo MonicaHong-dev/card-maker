@@ -15,6 +15,9 @@ const CardItem = ({ editCard, card, onDelete }) => {
   const { id, name, work, theme, position, email, memo, fileName, fileURL } = card;
 
   const onEdit = (event) => {
+    if (event.currentTarget == null) {
+      return;
+    }
     event.preventDefault();
     const editName = inputName.current.value;
     const editWork = inputWork.current.value;
