@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Button from "../button/button";
 import styles from "./cardAdd.module.css";
-import ImageFileInput from "./../image/imageFileInput";
 
-const CardAdd = ({ addCard }) => {
+const CardAdd = ({ FileInput, addCard }) => {
   const formRef = useRef();
   const inputName = useRef();
   const inputWork = useRef();
@@ -11,6 +10,14 @@ const CardAdd = ({ addCard }) => {
   const inputPosition = useRef();
   const inputEmail = useRef();
   const inputMemo = useRef();
+  const [file, setFile] = useState({ fileName: null, fileURL: null });
+
+  const onFileChange = (file) => {
+    setFile({
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +27,8 @@ const CardAdd = ({ addCard }) => {
     const newPosition = inputPosition.current.value || "";
     const newEmail = inputEmail.current.value || "";
     const newMemo = inputMemo.current.value || "";
+    const fileName = file.fileName || "";
+    const fileURL = file.fileURL || "";
 
     let newCard = {
       id: Date.now(),
@@ -29,11 +38,12 @@ const CardAdd = ({ addCard }) => {
       position: newPosition,
       email: newEmail,
       memo: newMemo,
-      fileName: "logo.png",
-      fileURL: "logo.png",
+      fileName: fileName,
+      fileURL: fileURL,
     };
 
     formRef.current.reset();
+    setFile({ fileName: null, fileURL: null });
     addCard(newCard);
   };
   return (
@@ -73,7 +83,7 @@ const CardAdd = ({ addCard }) => {
         placeholder="memo"
       />
       <div className={styles.fileInput}>
-        <ImageFileInput className={styles.fileInput} />
+        <FileInput name={file.fileName} onFileChange={onFileChange} />
       </div>
       <Button name="Add" onClick={onSubmit} />
     </form>

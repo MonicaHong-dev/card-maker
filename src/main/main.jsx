@@ -8,7 +8,7 @@ import Footer from "../components/footer/footer";
 import CardMaker from "../components/cardMaker/cardMaker";
 import CardPreview from "../components/cardPreview/cardPreview";
 
-const Main = ({ authService }) => {
+const Main = ({ FileInput, authService }) => {
   const navigate = useNavigate();
   const [cards, setCards] = useState({
     1: {
@@ -86,6 +86,7 @@ const Main = ({ authService }) => {
         <Header onLogout={onLogout} />
         <div className={styles.container}>
           <CardMaker
+            FileInput={FileInput}
             cards={cards}
             editCard={createOrUpdateCard}
             addCard={createOrUpdateCard}

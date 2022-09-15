@@ -4,19 +4,22 @@ import "./index.module.css";
 import App from "./app";
 import AuthService from "./service/auth_service";
 import { firebaseApp } from "./service/firebase";
-import { cloudinary } from "cloudinary";
-
-cloudinary.config({
-  secure: true,
-});
-
-console.log(cloudinary.config());
+import ImageUploader from "./service/image_upload";
+import ImageFileInput from "./components/image/image_file_input";
 
 const authService = new AuthService(firebaseApp);
+const imageUploader = new ImageUploader();
 
+// const FileInput = <ImageFileInput imageUploader = {imageUploader} />
+//이벤트와 같은 추가적인 props를 전달할 수 있도록 확장성을 고려
+const FileInput = (props) => <ImageFileInput {...props} imageUploader={imageUploader} />;
+let name = "";
+const onfileChange = (name) => console.log(name);
 ReactDOM.render(
   <React.StrictMode>
-    <App authService={authService} />
+    <App authService={authService} FileInput={FileInput} />
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+//component prop은 대문자로 시작함

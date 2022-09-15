@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import Button from "../button/button";
 import styles from "./cardItem.module.css";
-import ImageFileInput from "./../image/imageFileInput";
 
-const CardItem = ({ editCard, card, onDelete }) => {
+const CardItem = ({ FileInput, editCard, card, onDelete }) => {
   console.log(card);
   const formRef = useRef();
   const inputName = useRef();
@@ -34,10 +33,18 @@ const CardItem = ({ editCard, card, onDelete }) => {
       position: editPosition,
       email: editEmail,
       memo: editMemo,
-      fileName: "logo.png",
-      fileURL: "logo.png",
+      fileName: fileName,
+      fileURL: fileURL,
     };
     editCard(editedCard);
+  };
+
+  const onFileChange = (file) => {
+    editCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
   };
 
   const onSumit = () => {
@@ -98,7 +105,7 @@ const CardItem = ({ editCard, card, onDelete }) => {
         value={memo}
       />
       <div className={styles.fileInput}>
-        <ImageFileInput className={styles.fileInput} />
+        <FileInput name={fileName} onFileChange={onFileChange} />
       </div>
       <Button name="delete" onClick={onSumit} />
     </form>
