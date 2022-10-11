@@ -6,7 +6,9 @@ import AuthService from "./service/auth_service";
 import { firebaseApp } from "./service/firebase";
 import ImageUploader from "./service/image_upload";
 import ImageFileInput from "./components/image/image_file_input";
+import CardRepository from "./service/card_repository";
 
+const cardRepository = new CardRepository(firebaseApp);
 const authService = new AuthService(firebaseApp);
 const imageUploader = new ImageUploader();
 
@@ -17,7 +19,7 @@ let name = "";
 const onfileChange = (name) => console.log(name);
 ReactDOM.render(
   <React.StrictMode>
-    <App authService={authService} FileInput={FileInput} />
+    <App authService={authService} FileInput={FileInput} cardRepository={cardRepository} />
   </React.StrictMode>,
   document.getElementById("root")
 );

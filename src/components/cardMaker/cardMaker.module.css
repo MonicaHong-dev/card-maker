@@ -4,8 +4,8 @@
     flex-basis: 50%;
     border-right: 1px makerLightGrey solid;
     padding: 0.5em 2em;
-    margin-left: ;
     padding-left: 0;
+    overflow-y: auto;
     /* background-color: wheat; */
 }
 

@@ -2,11 +2,13 @@
 @value makerWhite from '../common/colors.css';
 
 .maker {
-    width: 100%;
+    max-width: 80rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     background-color: makerWhite;
+    /* padding-top: 100px;
+    padding-bottom: 50px; */
     
 }
 
@@ -15,6 +17,7 @@
     display: flex;
     /* 가득 채워 주기 위해 flex : 1을 씀 */
    flex:1;
+   min-height: 0;
   
 }
 
